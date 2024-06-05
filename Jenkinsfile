@@ -4,11 +4,12 @@ pipeline {
     environment {
         DOCKER_CREDENTIALS_ID = 'dockerhub_credentials'
         DOCKER_REPO = 'ghulammohiuddin'
+        DOCKER_USERNAME = 'ghulammohiuddin'
+        DOCKER_PASSWORD = 'AllahG92@'
     }
 
     stages {
-      
-
+       
         stage('i211130 Build and Push Docker Images') {
             parallel {
                 stage('i211130 Build and Push Auth Image') {
