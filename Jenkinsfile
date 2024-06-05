@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-     
+       
 
         stage('i211130 Build Docker Images') {
             parallel {
