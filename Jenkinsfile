@@ -2,67 +2,50 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_CREDENTIALS_ID = 'dockerhub_credentials'
         DOCKER_REPO = 'ghulammohiuddin'
-        DOCKER_USERNAME = 'ghulammohiuddin'
-        DOCKER_PASSWORD = 'AllahG92@'
     }
 
     stages {
-       
-        stage('i211130 Build and Push Docker Images') {
+     
+
+        stage('i211130 Build Docker Images') {
             parallel {
-                stage('i211130 Build and Push Auth Image') {
+                stage('i211130 Build Auth Image') {
                     steps {
                         script {
                             def app = docker.build("${DOCKER_REPO}/auth", './Auth')
-                            docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS_ID) {
-                                app.push("latest")
-                            }
                         }
                     }
                 }
 
-                stage('i211130 Build and Push Classrooms Image') {
+                stage('i211130 Build Classrooms Image') {
                     steps {
                         script {
                             def app = docker.build("${DOCKER_REPO}/classrooms", './Classrooms')
-                            docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS_ID) {
-                                app.push("latest")
-                            }
                         }
                     }
                 }
 
-                stage('i211130 Build and Push Client Image') {
+                stage('i211130 Build Client Image') {
                     steps {
                         script {
                             def app = docker.build("${DOCKER_REPO}/client", './client')
-                            docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS_ID) {
-                                app.push("latest")
-                            }
                         }
                     }
                 }
 
-                stage('i211130 Build and Push Event-Bus Image') {
+                stage('i211130 Build Event-Bus Image') {
                     steps {
                         script {
                             def app = docker.build("${DOCKER_REPO}/event-bus", './event-bus')
-                            docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS_ID) {
-                                app.push("latest")
-                            }
                         }
                     }
                 }
 
-                stage('i211130 Build and Push Post Image') {
+                stage('i211130 Build Post Image') {
                     steps {
                         script {
                             def app = docker.build("${DOCKER_REPO}/post", './Post')
-                            docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS_ID) {
-                                app.push("latest")
-                            }
                         }
                     }
                 }
