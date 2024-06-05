@@ -7,12 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('i211130 Checkout') {
-            steps {
-                // Checkout the code from GitHub
-                git url: 'https://github.com/yourusername/your-repo.git', branch: 'master'
-            }
-        }
+      
 
         stage('i211130 Build and Push Docker Images') {
             parallel {
