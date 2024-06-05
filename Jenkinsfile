@@ -10,7 +10,7 @@ pipeline {
         stage('i211130 Checkout') {
             steps {
                 // Checkout the code from GitHub
-                git url: 'https://github.com/yourusername/your-repo.git', branch: 'main'
+                git url: 'https://github.com/yourusername/your-repo.git', branch: 'master'
             }
         }
 
